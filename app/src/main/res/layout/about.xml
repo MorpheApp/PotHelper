@@ -95,11 +95,13 @@
 
         </LinearLayout>
 
+        <!-- License rows are tagged with an asset name, the URL of its source,
+             and optionally the markers 'numbered' and 'tall'. -->
         <TextView style="@style/GroupTitle" android:text="@string/pref_category_project_license" />
 
         <LinearLayout style="@style/Group">
 
-            <LinearLayout style="@style/Item" android:tag="project_notice_with_license https://github.com/MorpheApp/PotHelper">
+            <LinearLayout style="@style/Item" android:tag="project_notice_with_license https://github.com/MorpheApp/PotHelper tall">
                 <TextView style="@style/ItemTitle" android:text="@string/pref_project_license_pot_helper_title" />
                 <TextView style="@style/ItemSummary" android:text="@string/pref_project_license_pot_helper_summary" />
             </LinearLayout>
@@ -110,12 +112,12 @@
 
         <LinearLayout style="@style/Group">
 
-            <LinearLayout style="@style/Item" android:tag="nanopb https://github.com/nanopb/nanopb">
+            <LinearLayout style="@style/Item" android:tag="nanopb https://github.com/nanopb/nanopb numbered">
                 <TextView style="@style/ItemTitle" android:text="@string/pref_third_party_license_nano_pb_title" />
                 <TextView style="@style/ItemSummary" android:text="@string/pref_third_party_license_nano_pb_summary" />
             </LinearLayout>
 
-            <LinearLayout style="@style/Item" android:tag="safeparcel https://github.com/microg/SafeParcel">
+            <LinearLayout style="@style/Item" android:tag="safeparcel https://github.com/microg/SafeParcel tall">
                 <TextView style="@style/ItemTitle" android:text="@string/pref_third_party_license_safe_parcel_title" />
                 <TextView style="@style/ItemSummary" android:text="@string/pref_third_party_license_safe_parcel_summary" />
             </LinearLayout>

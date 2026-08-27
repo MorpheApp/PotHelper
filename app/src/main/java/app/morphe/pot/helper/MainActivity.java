@@ -161,11 +161,10 @@ public class MainActivity extends Activity {
     }
 
     private void open(String tag) {
-        int separator = tag.indexOf(' ');
-        if (separator < 0) {
+        if (tag.indexOf(' ') < 0) {
             browse(tag);
         } else {
-            showLicenseDialog(tag.substring(0, separator), tag.substring(separator + 1));
+            showLicenseDialog(tag);
         }
     }
 
@@ -177,11 +176,17 @@ public class MainActivity extends Activity {
         }
     }
 
+    /**
+     * Shows the license of a row tagged with an asset name, the URL of its source,
+     * and optionally the markers 'numbered' and 'tall'.
+     */
     @SuppressWarnings("CharsetObjectCanBeUsed")
-    private void showLicenseDialog(String asset, String sourceUrl) {
-        // The Zlib notice is the only numbered one, and the only one short
-        // enough to fit the default dialog height.
-        boolean useNumberFormat = asset.equals("nanopb");
+    private void showLicenseDialog(String tag) {
+        String[] parts = tag.split(" ");
+        String asset = parts[0];
+        String sourceUrl = parts[1];
+        boolean useNumberFormat = tag.contains(" numbered");
+        boolean tallDialog = tag.contains(" tall");
 
         Spanned content;
         try (InputStream is = getAssets().open(asset + ".html")) {
@@ -208,7 +213,7 @@ public class MainActivity extends Activity {
             window.clearFlags(WindowManager.LayoutParams.FLAG_DIM_BEHIND);
 
             // A long notice would otherwise stretch the dialog over the whole screen.
-            if (!useNumberFormat) {
+            if (tallDialog) {
                 WindowManager.LayoutParams params = window.getAttributes();
                 params.height = (int) (getResources().getDisplayMetrics().heightPixels * 0.85);
                 window.setAttributes(params);
