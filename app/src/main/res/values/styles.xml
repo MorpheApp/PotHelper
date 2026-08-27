@@ -16,4 +16,57 @@
         <item name="android:minHeight">42.0dip</item>
         <item name="android:padding">0.0dip</item>
     </style>
+
+    <style name="GroupTitle">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginTop">24.0dip</item>
+        <item name="android:layout_marginBottom">8.0dip</item>
+        <item name="android:paddingStart">16.0dip</item>
+        <item name="android:paddingEnd">16.0dip</item>
+        <item name="android:textColor">@color/app_accent</item>
+        <item name="android:textSize">14sp</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <!-- The vertical padding keeps the first and last row clear of the rounded corners. -->
+    <style name="Group">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:background">@drawable/group_background</item>
+        <item name="android:divider">@drawable/item_divider</item>
+        <item name="android:showDividers">middle</item>
+        <item name="android:orientation">vertical</item>
+        <item name="android:paddingTop">4.0dip</item>
+        <item name="android:paddingBottom">4.0dip</item>
+    </style>
+
+    <!-- The tag carries what a tap does. -->
+    <style name="Item">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:background">?android:attr/selectableItemBackground</item>
+        <item name="android:clickable">true</item>
+        <item name="android:focusable">true</item>
+        <item name="android:orientation">vertical</item>
+        <item name="android:paddingStart">16.0dip</item>
+        <item name="android:paddingEnd">16.0dip</item>
+        <item name="android:paddingTop">14.0dip</item>
+        <item name="android:paddingBottom">14.0dip</item>
+    </style>
+
+    <style name="ItemTitle">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textColor">@color/app_foreground</item>
+        <item name="android:textSize">16sp</item>
+    </style>
+
+    <style name="ItemSummary">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginTop">2.0dip</item>
+        <item name="android:textColor">@color/app_foreground_secondary</item>
+        <item name="android:textSize">14sp</item>
+    </style>
 </resources>

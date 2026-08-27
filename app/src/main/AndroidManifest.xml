@@ -1,31 +1,50 @@
 <?xml version="1.0" encoding="utf-8"?>
-<manifest xmlns:android="http://schemas.android.com/apk/res/android">
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
 
     <application
+        android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
-        android:roundIcon="@mipmap/ic_launcher_round"
         android:label="@string/app_launcher_name">
 
         <activity
-            android:allowBackup="true"
             android:name=".MainActivity"
             android:theme="@style/AppTheme"
+            android:exported="true" />
+
+        <!--
+            Carries the launcher icon, disabled on purpose: since Android 10 the system
+            substitutes a synthetic icon for one that the manifest enables, so only an
+            icon that starts off hidden can be hidden at all.
+        -->
+        <activity-alias
+            android:name=".Launcher"
+            android:targetActivity=".MainActivity"
+            android:enabled="false"
             android:exported="true" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.DEFAULT" />
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-        </activity>
+        </activity-alias>
 
+        <!--
+            Client apps bind to the provider and the service, so both must stay exported
+            without a permission those clients do not hold. The provider exposes no data:
+            it returns an empty cursor, its writes are no-ops, and call only resolves
+            services of this package.
+        -->
         <provider
             android:name=".chimera.ServiceProvider"
             android:authorities="app.morphe.pot.helper.chimera"
-            android:exported="true" />
+            android:exported="true"
+            tools:ignore="ExportedContentProvider" />
 
         <service
             android:name=".potokens.PoTokenService"
-            android:exported="true">
+            android:exported="true"
+            tools:ignore="ExportedService">
             <intent-filter>
                 <action android:name="app.morphe.pot.helper.potokens.service.START" />
             </intent-filter>
