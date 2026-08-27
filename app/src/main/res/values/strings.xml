@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">PoToken Helper</string>
+    <string name="app_launcher_name">PotHelper</string>
+
+    <string name="app_version">Version %1$s</string>
+    <string name="pref_app_version_title">App version</string>
+
+    <string name="pref_category_official_links">Official links</string>
+    <string name="pref_official_links_donate_title">Donate</string>
+    <string name="pref_official_links_donate_summary">Support us</string>
+    <string name="pref_official_links_website_title">Website</string>
+    <string name="pref_official_links_website_summary">Explore more products</string>
+    <string name="pref_official_links_github_title">GitHub</string>
+    <string name="pref_official_links_github_summary">Source code</string>
+    <string name="pref_official_links_reddit_title">Reddit</string>
+    <string name="pref_official_links_reddit_summary">r/MorpheApp</string>
+    <string name="pref_official_links_translate_title">Translations</string>
+    <string name="pref_official_links_translate_summary">Help translate this app</string>
+
+    <string name="pref_category_credits">Credits</string>
+    <string name="pref_credits_morphe_title">Morphe</string>
+    <string name="pref_credits_morphe_summary">Active development</string>
+    <string name="pref_credits_microg_title">microG Project</string>
+    <string name="pref_credits_microg_summary">Re-implementation of Google services</string>
+    <string name="pref_credits_microg_re_title">MicroG-RE</string>
+    <string name="pref_credits_microg_re_summary">Implementation Material You icons</string>
+
+    <string name="pref_category_project_license">Project license</string>
+    <string name="pref_project_license_pot_helper_title">PotHelper</string>
+    <string name="pref_project_license_pot_helper_summary">PotHelper is licensed under Apache 2.0</string>
+
+    <string name="pref_category_third_party_license">Third-party licenses</string>
+    <string name="pref_third_party_license_nano_pb_title">Nanopb</string>
+    <string name="pref_third_party_license_nano_pb_summary">Nanopb is licensed under Zlib</string>
+    <string name="pref_third_party_license_safe_parcel_title">SafeParcel</string>
+    <string name="pref_third_party_license_safe_parcel_summary">SafeParcel is licensed under Apache 2.0</string>
+
+    <string name="license_dialog_ok_button_text">OK</string>
+    <string name="license_dialog_source_button_text">Source</string>
+</resources>

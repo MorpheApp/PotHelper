@@ -1,0 +1,21 @@
+# Built outputs
+*.iml
+.gradle/
+local.properties
+.idea/
+build/
+app/build/
+
+# Signing
+*.jks
+*.keystore
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# IDE
+.vscode/
+*.swp
+*.swo
+*~

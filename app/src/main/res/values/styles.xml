@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="AppTheme" parent="android:Theme.DeviceDefault.Light.NoActionBar">
+        <item name="android:colorBackground">@color/app_background</item>
+        <item name="android:textColor">@color/app_foreground</item>
+    </style>
+    <style name="DialogTheme" parent="android:ThemeOverlay.Material.Dialog">
+        <item name="android:background">@drawable/dialog_outline</item>
+        <item name="android:buttonBarButtonStyle">@style/DialogButtonBarTheme</item>
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <item name="android:windowIsTranslucent">true</item>
+        <item name="android:windowMinWidthMajor">80%</item>
+        <item name="android:windowMinWidthMinor">90%</item>
+    </style>
+    <style name="DialogButtonBarTheme" parent="android:Widget.Material.ButtonBar.AlertDialog">
+        <item name="android:minHeight">42.0dip</item>
+        <item name="android:padding">0.0dip</item>
+    </style>
+</resources>

@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <application
+        android:icon="@mipmap/ic_launcher"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:label="@string/app_launcher_name">
+
+        <activity
+            android:allowBackup="true"
+            android:name=".MainActivity"
+            android:theme="@style/AppTheme"
+            android:exported="true" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <provider
+            android:name=".chimera.ServiceProvider"
+            android:authorities="app.morphe.pot.helper.chimera"
+            android:exported="true" />
+
+        <service
+            android:name=".potokens.PoTokenService"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="app.morphe.pot.helper.potokens.service.START" />
+            </intent-filter>
+        </service>
+    </application>
+</manifest>

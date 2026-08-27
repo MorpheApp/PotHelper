@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:paddingLeft="24.0dip"
+    android:paddingTop="24.0dip"
+    android:paddingRight="24.0dip"
+    android:paddingBottom="0.0dip">
+
+    <TextView
+        android:id="@+id/license_content"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="13sp"
+        android:textColor="@color/app_foreground"/>
+</ScrollView>
