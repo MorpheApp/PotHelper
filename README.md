@@ -19,6 +19,8 @@
 
 A simple PoToken minter written in Java.
 
+The helper app runs offline and has no internet access permissions. 
+
 ## ⚖️ Disclaimer
 
 This project is provided **as is** without any warranty or guarantee of functionality, stability, or safety. **Use at your own risk**.
@@ -26,3 +28,10 @@ This project is provided **as is** without any warranty or guarantee of function
 ## 📜 License
 
 Distributed under the [Apache License 2.0](https://choosealicense.com/licenses/apache-2.0/).
+
+### License Compatibility
+
+This project contains native code distributed exclusively in compiled binary form.
+
+Because the "Corresponding Source" for these binaries is not available, the native code is incompatible with copyleft licenses.
+Specifically, the native code portions may not be linked with or distributed with GPLv3 code or with code under any other strong copyleft license.
