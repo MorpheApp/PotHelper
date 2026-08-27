@@ -20,11 +20,13 @@ package app.morphe.pot.helper;
 import android.app.Activity;
 import android.content.res.Configuration;
 import android.graphics.Color;
+import android.graphics.Insets;
 import android.os.Build;
 import android.os.Bundle;
 import android.util.TypedValue;
 import android.view.View;
 import android.view.Window;
+import android.view.WindowInsets;
 import android.view.WindowInsetsController;
 
 @SuppressWarnings("deprecation")
@@ -40,26 +42,56 @@ public class MainActivity extends Activity {
 
         Window window = getWindow();
         window.setStatusBarColor(Color.TRANSPARENT);
+        window.setNavigationBarColor(Color.TRANSPARENT);
 
-        View decorView = window.getDecorView();
-        if (isDarkModeEnabled) {
-            decorView.setSystemUiVisibility(View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR | View.SYSTEM_UI_FLAG_LIGHT_NAVIGATION_BAR);
-        } else {
-            decorView.setSystemUiVisibility(View.SYSTEM_UI_FLAG_VISIBLE);
+        // Otherwise the system paints an opaque contrast scrim behind the bars,
+        // which does not follow the app background color.
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {
+            window.setStatusBarContrastEnforced(false);
+            window.setNavigationBarContrastEnforced(false);
         }
-        if (Build.VERSION.SDK_INT > 30) {
+
+        // Forces the decor view to be created, which the insets controller requires.
+        View decorView = window.getDecorView();
+
+        // The light flags mean "the bar background is light, so draw dark icons",
+        // and therefore must be set for the light theme, not the dark one.
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R) {
             WindowInsetsController insetsController = window.getInsetsController();
             if (insetsController != null) {
-                insetsController.setSystemBarsAppearance(
-                        WindowInsetsController.APPEARANCE_LIGHT_STATUS_BARS,
-                        WindowInsetsController.APPEARANCE_LIGHT_STATUS_BARS
-                );
+                int lightBars = WindowInsetsController.APPEARANCE_LIGHT_STATUS_BARS
+                        | WindowInsetsController.APPEARANCE_LIGHT_NAVIGATION_BARS;
+                insetsController.setSystemBarsAppearance(isDarkModeEnabled ? 0 : lightBars, lightBars);
             }
+        } else {
+            int lightBars = View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR | View.SYSTEM_UI_FLAG_LIGHT_NAVIGATION_BAR;
+            int visibility = decorView.getSystemUiVisibility();
+            decorView.setSystemUiVisibility(isDarkModeEnabled
+                    ? visibility & ~lightBars
+                    : visibility | lightBars);
         }
 
         TypedValue typedValue = new TypedValue();
         getTheme().resolveAttribute(android.R.attr.colorBackground, typedValue, true);
-        findViewById(android.R.id.content).setBackgroundColor(typedValue.data);
+
+        View contentView = findViewById(android.R.id.content);
+        contentView.setBackgroundColor(typedValue.data);
+
+        // The window is edge to edge, so keep the content clear of the system bars.
+        contentView.setOnApplyWindowInsetsListener((view, insets) -> {
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R) {
+                Insets bars = insets.getInsets(WindowInsets.Type.systemBars());
+                view.setPadding(bars.left, bars.top, bars.right, bars.bottom);
+            } else {
+                view.setPadding(
+                        insets.getSystemWindowInsetLeft(),
+                        insets.getSystemWindowInsetTop(),
+                        insets.getSystemWindowInsetRight(),
+                        insets.getSystemWindowInsetBottom()
+                );
+            }
+            return insets;
+        });
 
         setContentView(R.layout.root_view);
 
