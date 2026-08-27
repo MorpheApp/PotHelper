@@ -12,10 +12,15 @@
             android:theme="@style/AppTheme"
             android:exported="true" />
 
-        <!-- Carries the launcher icon, so that it can be disabled without losing the activity. -->
+        <!--
+            Carries the launcher icon, disabled on purpose: since Android 10 the system
+            substitutes a synthetic icon for one that the manifest enables, so only an
+            icon that starts off hidden can be hidden at all.
+        -->
         <activity-alias
             android:name=".Launcher"
             android:targetActivity=".MainActivity"
+            android:enabled="false"
             android:exported="true" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

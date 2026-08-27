@@ -117,10 +117,10 @@ public class MainActivity extends Activity {
 
         bind(findViewById(R.id.about_content));
 
-        Switch hideIconSwitch = findViewById(R.id.hide_icon_switch);
-        hideIconSwitch.setChecked(isLauncherIconHidden());
-        hideIconSwitch.setOnCheckedChangeListener((view, hidden) -> setLauncherIconHidden(hidden));
-        findViewById(R.id.hide_icon).setOnClickListener(view -> hideIconSwitch.toggle());
+        Switch showIconSwitch = findViewById(R.id.show_icon_switch);
+        showIconSwitch.setChecked(isLauncherIconShown());
+        showIconSwitch.setOnCheckedChangeListener((view, shown) -> setLauncherIconShown(shown));
+        findViewById(R.id.show_icon).setOnClickListener(view -> showIconSwitch.toggle());
     }
 
     /**
@@ -146,17 +146,17 @@ public class MainActivity extends Activity {
         return new ComponentName(this, getPackageName() + ".Launcher");
     }
 
-    private boolean isLauncherIconHidden() {
+    private boolean isLauncherIconShown() {
         return getPackageManager().getComponentEnabledSetting(launcherAlias())
-                == PackageManager.COMPONENT_ENABLED_STATE_DISABLED;
+                == PackageManager.COMPONENT_ENABLED_STATE_ENABLED;
     }
 
-    private void setLauncherIconHidden(boolean hidden) {
+    private void setLauncherIconShown(boolean shown) {
         getPackageManager().setComponentEnabledSetting(
                 launcherAlias(),
-                hidden
-                        ? PackageManager.COMPONENT_ENABLED_STATE_DISABLED
-                        : PackageManager.COMPONENT_ENABLED_STATE_ENABLED,
+                shown
+                        ? PackageManager.COMPONENT_ENABLED_STATE_ENABLED
+                        : PackageManager.COMPONENT_ENABLED_STATE_DISABLED,
                 PackageManager.DONT_KILL_APP);
     }
 

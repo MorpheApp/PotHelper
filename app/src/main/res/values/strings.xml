@@ -7,8 +7,8 @@
     <string name="pref_app_version_title">App version</string>
 
     <string name="pref_category_settings">Settings</string>
-    <string name="pref_settings_hide_icon_title">Hide app icon</string>
-    <string name="pref_settings_hide_icon_summary">Remove PotHelper from the home screen</string>
+    <string name="pref_settings_show_icon_title">Show app icon</string>
+    <string name="pref_settings_show_icon_summary">Add PotHelper to the home screen</string>
 
     <string name="pref_category_official_links">Official links</string>
     <string name="pref_official_links_donate_title">Donate</string>
