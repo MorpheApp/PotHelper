@@ -122,5 +122,37 @@
 
         </LinearLayout>
 
+        <TextView style="@style/GroupTitle" android:text="@string/pref_category_settings" />
+
+        <LinearLayout style="@style/Group">
+
+            <LinearLayout
+                android:id="@+id/hide_icon"
+                style="@style/Item"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <LinearLayout
+                    android:layout_width="0.0dip"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+                    <TextView style="@style/ItemTitle" android:text="@string/pref_settings_hide_icon_title" />
+                    <TextView style="@style/ItemSummary" android:text="@string/pref_settings_hide_icon_summary" />
+                </LinearLayout>
+
+                <!-- The row owns the click, so that a tap anywhere on it toggles the switch. -->
+                <Switch
+                    android:id="@+id/hide_icon_switch"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16.0dip"
+                    android:clickable="false"
+                    android:focusable="false" />
+
+            </LinearLayout>
+
+        </LinearLayout>
+
     </LinearLayout>
 </ScrollView>

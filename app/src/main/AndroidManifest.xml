@@ -10,13 +10,19 @@
         <activity
             android:name=".MainActivity"
             android:theme="@style/AppTheme"
+            android:exported="true" />
+
+        <!-- Carries the launcher icon, so that it can be disabled without losing the activity. -->
+        <activity-alias
+            android:name=".Launcher"
+            android:targetActivity=".MainActivity"
             android:exported="true" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.DEFAULT" />
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-        </activity>
+        </activity-alias>
 
         <!--
             Client apps bind to the provider and the service, so both must stay exported

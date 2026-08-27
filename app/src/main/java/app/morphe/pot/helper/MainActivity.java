@@ -20,7 +20,9 @@ package app.morphe.pot.helper;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.ActivityNotFoundException;
+import android.content.ComponentName;
 import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.content.res.Configuration;
 import android.graphics.Color;
 import android.graphics.Insets;
@@ -39,6 +41,7 @@ import android.view.Window;
 import android.view.WindowInsets;
 import android.view.WindowInsetsController;
 import android.view.WindowManager;
+import android.widget.Switch;
 import android.widget.TextView;
 
 import java.io.InputStream;
@@ -113,6 +116,11 @@ public class MainActivity extends Activity {
         versionView.setText(getString(R.string.app_version, BuildConfig.VERSION_NAME));
 
         bind(findViewById(R.id.about_content));
+
+        Switch hideIconSwitch = findViewById(R.id.hide_icon_switch);
+        hideIconSwitch.setChecked(isLauncherIconHidden());
+        hideIconSwitch.setOnCheckedChangeListener((view, hidden) -> setLauncherIconHidden(hidden));
+        findViewById(R.id.hide_icon).setOnClickListener(view -> hideIconSwitch.toggle());
     }
 
     /**
@@ -122,18 +130,34 @@ public class MainActivity extends Activity {
     private void bind(ViewGroup group) {
         for (int i = 0; i < group.getChildCount(); i++) {
             View child = group.getChildAt(i);
-            if (child instanceof ViewGroup) {
-                bind((ViewGroup) child);
-            }
             Object tag = child.getTag();
             if (tag instanceof String) {
                 child.setOnClickListener(view -> open((String) tag));
-            } else if (child instanceof ViewGroup) {
-                // Clips the ripple of the rows to the rounded corners of the card. Never do
-                // this to a row: the outline of its own ripple is empty and would clip it away.
+            } else if (child instanceof ViewGroup && !child.isClickable()) {
+                // Only a card is clipped, so that the ripple of its rows follows the rounded
+                // corners. Clipping a row would hide it, because its own ripple has no outline.
                 child.setClipToOutline(true);
+                bind((ViewGroup) child);
             }
         }
+    }
+
+    private ComponentName launcherAlias() {
+        return new ComponentName(this, getPackageName() + ".Launcher");
+    }
+
+    private boolean isLauncherIconHidden() {
+        return getPackageManager().getComponentEnabledSetting(launcherAlias())
+                == PackageManager.COMPONENT_ENABLED_STATE_DISABLED;
+    }
+
+    private void setLauncherIconHidden(boolean hidden) {
+        getPackageManager().setComponentEnabledSetting(
+                launcherAlias(),
+                hidden
+                        ? PackageManager.COMPONENT_ENABLED_STATE_DISABLED
+                        : PackageManager.COMPONENT_ENABLED_STATE_ENABLED,
+                PackageManager.DONT_KILL_APP);
     }
 
     private void open(String tag) {
