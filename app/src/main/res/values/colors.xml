@@ -3,6 +3,10 @@
     <color name="ic_launcher_background">#ffffffff</color>
     <color name="app_background">#ffe6e9ef</color>
     <color name="app_foreground">#ff181825</color>
+    <color name="app_foreground_secondary">#ff6c6f85</color>
+    <color name="app_accent">#ff1e66f5</color>
+    <color name="group_background">#ffeff1f5</color>
+    <color name="item_divider">#ffccd0da</color>
     <color name="dialog_background">#ffd1e0ff</color>
     <color name="icon_outline">#ffc2e9fb</color>
 </resources>

@@ -19,15 +19,10 @@
         </activity>
 
         <!--
-            The provider and the service below are the IPC surface that client
-            apps bind to, so they must stay exported and cannot require a
-            permission that those clients do not hold.
-
-            The provider exposes no data of its own: query returns an empty
-            cursor, insert, update and delete are no-ops, and call only resolves
-            services that live in this package. A read or write permission would
-            not protect it either, because ContentProvider.call is not covered by
-            those permissions.
+            Client apps bind to the provider and the service, so both must stay exported
+            without a permission those clients do not hold. The provider exposes no data:
+            it returns an empty cursor, its writes are no-ops, and call only resolves
+            services of this package.
         -->
         <provider
             android:name=".chimera.ServiceProvider"

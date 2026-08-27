@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:scrollbars="none">
+
+    <LinearLayout
+        android:id="@+id/about_content"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:paddingStart="16.0dip"
+        android:paddingEnd="16.0dip"
+        android:paddingBottom="32.0dip">
+
+        <ImageView
+            android:layout_width="72.0dip"
+            android:layout_height="72.0dip"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="56.0dip"
+            android:contentDescription="@string/app_name"
+            android:foreground="@drawable/icon_outline"
+            android:src="@mipmap/ic_launcher" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="16.0dip"
+            android:text="@string/app_name"
+            android:textColor="@color/app_foreground"
+            android:textSize="24sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/app_version"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="8.0dip"
+            android:textColor="@color/app_foreground_secondary"
+            android:textSize="16sp" />
+
+        <TextView style="@style/GroupTitle" android:text="@string/pref_category_official_links" />
+
+        <LinearLayout style="@style/Group">
+
+            <LinearLayout style="@style/Item" android:tag="https://morphe.software/donate">
+                <TextView style="@style/ItemTitle" android:text="@string/pref_official_links_donate_title" />
+                <TextView style="@style/ItemSummary" android:text="@string/pref_official_links_donate_summary" />
+            </LinearLayout>
+
+            <LinearLayout style="@style/Item" android:tag="https://morphe.software">
+                <TextView style="@style/ItemTitle" android:text="@string/pref_official_links_website_title" />
+                <TextView style="@style/ItemSummary" android:text="@string/pref_official_links_website_summary" />
+            </LinearLayout>
+
+            <LinearLayout style="@style/Item" android:tag="https://github.com/MorpheApp/PotHelper">
+                <TextView style="@style/ItemTitle" android:text="@string/pref_official_links_github_title" />
+                <TextView style="@style/ItemSummary" android:text="@string/pref_official_links_github_summary" />
+            </LinearLayout>
+
+            <LinearLayout style="@style/Item" android:tag="https://www.reddit.com/r/MorpheApp">
+                <TextView style="@style/ItemTitle" android:text="@string/pref_official_links_reddit_title" />
+                <TextView style="@style/ItemSummary" android:text="@string/pref_official_links_reddit_summary" />
+            </LinearLayout>
+
+            <!-- Not yet available in the Crowdin.
+            <LinearLayout style="@style/Item" android:tag="https://morphe.software/translate">
+                <TextView style="@style/ItemTitle" android:text="@string/pref_official_links_translate_title" />
+                <TextView style="@style/ItemSummary" android:text="@string/pref_official_links_translate_summary" />
+            </LinearLayout>
+            -->
+
+        </LinearLayout>
+
+        <TextView style="@style/GroupTitle" android:text="@string/pref_category_credits" />
+
+        <LinearLayout style="@style/Group">
+
+            <LinearLayout style="@style/Item" android:tag="https://github.com/MorpheApp/PotHelper/graphs/contributors?all=1">
+                <TextView style="@style/ItemTitle" android:text="@string/pref_credits_morphe_title" />
+                <TextView style="@style/ItemSummary" android:text="@string/pref_credits_morphe_summary" />
+            </LinearLayout>
+
+            <LinearLayout style="@style/Item" android:tag="https://github.com/microg/GmsCore/graphs/contributors?all=1">
+                <TextView style="@style/ItemTitle" android:text="@string/pref_credits_microg_title" />
+                <TextView style="@style/ItemSummary" android:text="@string/pref_credits_microg_summary" />
+            </LinearLayout>
+
+            <LinearLayout style="@style/Item" android:tag="https://github.com/MorpheApp/MicroG-RE/graphs/contributors?all=1">
+                <TextView style="@style/ItemTitle" android:text="@string/pref_credits_microg_re_title" />
+                <TextView style="@style/ItemSummary" android:text="@string/pref_credits_microg_re_summary" />
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <TextView style="@style/GroupTitle" android:text="@string/pref_category_project_license" />
+
+        <LinearLayout style="@style/Group">
+
+            <LinearLayout style="@style/Item" android:tag="project_notice_with_license https://github.com/MorpheApp/PotHelper">
+                <TextView style="@style/ItemTitle" android:text="@string/pref_project_license_pot_helper_title" />
+                <TextView style="@style/ItemSummary" android:text="@string/pref_project_license_pot_helper_summary" />
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <TextView style="@style/GroupTitle" android:text="@string/pref_category_third_party_license" />
+
+        <LinearLayout style="@style/Group">
+
+            <LinearLayout style="@style/Item" android:tag="nanopb https://github.com/nanopb/nanopb">
+                <TextView style="@style/ItemTitle" android:text="@string/pref_third_party_license_nano_pb_title" />
+                <TextView style="@style/ItemSummary" android:text="@string/pref_third_party_license_nano_pb_summary" />
+            </LinearLayout>
+
+            <LinearLayout style="@style/Item" android:tag="safeparcel https://github.com/microg/SafeParcel">
+                <TextView style="@style/ItemTitle" android:text="@string/pref_third_party_license_safe_parcel_title" />
+                <TextView style="@style/ItemSummary" android:text="@string/pref_third_party_license_safe_parcel_summary" />
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </LinearLayout>
+</ScrollView>
