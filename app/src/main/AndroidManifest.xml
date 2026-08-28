@@ -10,7 +10,13 @@
         <activity
             android:name=".MainActivity"
             android:theme="@style/AppTheme"
-            android:exported="true" />
+            android:exported="true">
+            <!-- Always allow opening the helper from the device system app list app info. -->
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.INFO" />
+            </intent-filter>
+        </activity>
 
         <!--
             Carries the launcher icon, disabled on purpose: since Android 10 the system
