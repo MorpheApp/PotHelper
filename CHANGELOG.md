@@ -1,3 +1,10 @@
+## [1.1.1](https://github.com/[secure]App/PotHelper/compare/v1.1.0...v1.1.1) (2026-08-28)
+
+
+### Bug Fixes
+
+* Allow opening helper from device system app when launcher icon is hidden ([2e0d8a5](https://github.com/[secure]App/PotHelper/commit/2e0d8a501effc8eedf4ca81579fa30c6b98efe6d))
+
 # [1.1.0](https://github.com/[secure]App/PotHelper/compare/v1.0.0...v1.1.0) (2026-08-27)
 
 
