@@ -122,6 +122,16 @@
                 <TextView style="@style/ItemSummary" android:text="@string/pref_third_party_license_safe_parcel_summary" />
             </LinearLayout>
 
+            <LinearLayout style="@style/Item" android:tag="mbedtls https://github.com/Mbed-TLS/mbedtls/tree/v3.6.7 tall">
+                <TextView style="@style/ItemTitle" android:text="@string/pref_third_party_license_mbedtls_title" />
+                <TextView style="@style/ItemSummary" android:text="@string/pref_third_party_license_mbedtls_summary" />
+            </LinearLayout>
+
+            <LinearLayout style="@style/Item" android:tag="monocypher https://github.com/LoupVaillant/Monocypher/tree/4.0.3 tall">
+                <TextView style="@style/ItemTitle" android:text="@string/pref_third_party_license_monocypher_title" />
+                <TextView style="@style/ItemSummary" android:text="@string/pref_third_party_license_monocypher_summary" />
+            </LinearLayout>
+
         </LinearLayout>
 
         <TextView style="@style/GroupTitle" android:text="@string/pref_category_settings" />

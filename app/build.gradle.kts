@@ -6,6 +6,10 @@ plugins {
     publishing
 }
 
+val nativeLibsDirectory = rootProject.file(
+    providers.gradleProperty("nativeLibsDir").getOrElse("app/src/main/jniLibs")
+)
+
 fun String.toVersionCode(): Int {
     val regex = Pattern.compile("""(\d+)\.(\d+)\.(\d+)(?:-dev\.(\d+))?""")
     val matcher = regex.matcher(this)
@@ -24,6 +28,8 @@ fun String.toVersionCode(): Int {
 
 android {
     namespace = "app.morphe.pot.helper"
+
+    sourceSets.getByName("main").jniLibs.setSrcDirs(listOf(nativeLibsDirectory))
 
     defaultConfig {
         applicationId = "app.morphe.pot.helper"

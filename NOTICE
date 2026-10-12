@@ -3,3 +3,23 @@ Copyright 2026 Morphe
 https://github.com/MorpheApp/PotHelper
 
 Portions of this software are provided by the Morphe software project.
+
+Native cryptography notices
+
+Mbed TLS 3.6.7
+Copyright The Mbed TLS Contributors
+https://github.com/Mbed-TLS/mbedtls/tree/v3.6.7
+The AES-GCM implementation is used under the Apache License, Version 2.0,
+selected from its dual Apache-2.0 OR GPL-2.0-or-later license.
+
+Monocypher 4.0.3
+Copyright (c) 2017-2023, Loup Vaillant
+Copyright (c) 2017-2019, Michael Savage
+Copyright (c) 2017-2023, Fabio Scotoni
+Compiled monocypher.c: Copyright (c) 2017-2020, Loup Vaillant
+https://github.com/LoupVaillant/Monocypher/tree/4.0.3
+Used under BSD-2-Clause, selected from its dual BSD-2-Clause OR CC0-1.0 license.
+All rights reserved.
+
+The native cryptography licenses are included in the application's
+third-party license assets and displayed in its Third-party licenses section.

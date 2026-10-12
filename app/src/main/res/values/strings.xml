@@ -39,6 +39,10 @@
     <string name="pref_third_party_license_nano_pb_summary">Nanopb is licensed under Zlib</string>
     <string name="pref_third_party_license_safe_parcel_title">SafeParcel</string>
     <string name="pref_third_party_license_safe_parcel_summary">SafeParcel is licensed under Apache 2.0</string>
+    <string name="pref_third_party_license_mbedtls_title">Mbed TLS</string>
+    <string name="pref_third_party_license_mbedtls_summary">Mbed TLS 3.6.7 is used under Apache 2.0</string>
+    <string name="pref_third_party_license_monocypher_title">Monocypher</string>
+    <string name="pref_third_party_license_monocypher_summary">Monocypher 4.0.3 is used under BSD-2-Clause</string>
 
     <string name="license_dialog_ok_button_text">OK</string>
     <string name="license_dialog_source_button_text">Source</string>
